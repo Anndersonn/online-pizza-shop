@@ -23,14 +23,14 @@ function PizzaBlock({ name, imageUrl, price, types, sizes }) {
             <h4 className="pizza-block__title">{name}</h4>
             <div className="pizza-block__selector">
                 <ul>
-                    {aviableTypes.map((type, index) => <li onClick={() => onSelectType(index)} className={classNames({
+                    {aviableTypes.map((type, index) => <li key={index} onClick={() => onSelectType(index)} className={classNames({
                         active: activeType === index,
                         disabled: !types.includes(index)
                     })}>{type}</li>)}
 
                 </ul>
                 <ul>
-                    {aviableSizes.map((size, index) => <li onClick={() => onSelectSize(index)} className={classNames({
+                    {aviableSizes.map((size, index) => <li key={index} onClick={() => onSelectSize(index)} className={classNames({
                         active: activeSize === index,
                         disabled: !sizes.includes(size)
                     })}>{size} см.</li>)}
