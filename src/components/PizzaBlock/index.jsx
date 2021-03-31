@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classname';
 import PropTypes from 'prop-types';
-import ContentLoader from "react-content-loader"
 
 function PizzaBlock({ name, imageUrl, price, types, sizes }) {
     const [activeType, setActiveType] = useState(types[0])
