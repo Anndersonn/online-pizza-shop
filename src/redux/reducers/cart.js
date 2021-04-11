@@ -12,7 +12,7 @@ const cart = (state = initialState, action) => {
                 [action.payload.id]: !state.items[action.payload.id] ? [action.payload] : [...state.items[action.payload.id], action.payload]
             }
 
-            const allPizzas = [].concat.apply([], Object.values(newItems))
+            const allPizzas = [].concat.apply([], Object.values(newItems)) // concatination of all added pizzas to one array.
             const totalPrice = allPizzas.reduce((sum, obj) => obj.price + sum, 0)
             return {
                 ...state,
