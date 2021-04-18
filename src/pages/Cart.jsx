@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CartItem from '../components/CartItem';
-import { clearCart, removeItemCart } from '../redux/actions/cart'
+import { clearCart, removeItemCart, plusCartItem, minusCartItem } from '../redux/actions/cart'
 import cartEmptyImg from '../assets/img/empty-cart.png'
 import { Link } from 'react-router-dom';
 
@@ -25,6 +25,14 @@ function Cart() {
             dispatch(removeItemCart(id))
 
         }
+    }
+
+    const onPlusItem = id => {
+        dispatch(plusCartItem(id))
+    }
+
+    const onMinusItem = id => {
+        dispatch(minusCartItem(id))
     }
 
 
@@ -53,7 +61,7 @@ function Cart() {
                         </div>
                         <div className="content__items">
                             {
-                                addedPizzas.map(obj => <CartItem id={obj.id} name={obj.name} type={obj.type} size={obj.size} totalPrice={items[obj.id].totalPrice} totalCount={items[obj.id].items.length} onRemove={handleRemoveItem} />)
+                                addedPizzas.map(obj => <CartItem key={obj.id} id={obj.id} name={obj.name} type={obj.type} size={obj.size} totalPrice={items[obj.id].totalPrice} totalCount={items[obj.id].items.length} onRemove={handleRemoveItem} onMinus={onMinusItem} onPlus={onPlusItem} />)
                             }
                         </div>
                         <div className="cart__bottom">
@@ -75,7 +83,7 @@ function Cart() {
                             </div>
                         </div>
                     </div> : <div className="cart cart--empty">
-                            <h2>Корзина пустая <icon>😕</icon></h2>
+                            <h2>Корзина пустая <i>😕</i></h2>
                             <p>
                                 Вероятней всего, вы не заказывали ещё пиццу.<br />
               Для того, чтобы заказать пиццу, перейди на главную страницу.
