@@ -6,7 +6,7 @@ const Categories = memo(function Categories({ activeCategory, items, onClickCate
     return (
         <div className="categories">
             <ul>
-                <li className={activeCategory === null ? 'active' : ''} onClick={() => onClickCategory(null)}>Все</li>
+                <li className={activeCategory === null ? 'active' : ''} onClick={() => onClickCategory(null)}>Wszystkie</li>
                 {items && items.map((item, index) => <li className={activeCategory === index ? 'active' : ''} onClick={() => onClickCategory(index)} key={`${item}_${index}`}>{item}</li>)}
             </ul>
         </div>

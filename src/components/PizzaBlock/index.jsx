@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function PizzaBlock({ id, name, imageUrl, price, types, sizes, onClickAddPizza, addedCount }) {
     const [activeType, setActiveType] = useState(types[0])
     const [activeSize, setActiveSize] = useState(0)
-    const aviableTypes = ['тонкое', 'традиционное']
+    const aviableTypes = ['cienkie', 'tradycyjne']
     const aviableSizes = [26, 30, 40]
     const onSelectType = (index) => {
         setActiveType(index)
@@ -46,11 +46,11 @@ function PizzaBlock({ id, name, imageUrl, price, types, sizes, onClickAddPizza, 
                     {aviableSizes.map((size, index) => <li key={index} onClick={() => onSelectSize(index)} className={classNames({
                         active: activeSize === index,
                         disabled: !sizes.includes(size)
-                    })}>{size} см.</li>)}
+                    })}>{size} cm</li>)}
                 </ul>
             </div>
             <div className="pizza-block__bottom">
-                <div className="pizza-block__price">от {price} ₽</div>
+                <div className="pizza-block__price">od {price} zł</div>
                 <div onClick={onAddPizza} className="button button--outline button--add">
                     <svg
                         width="12"
@@ -64,7 +64,7 @@ function PizzaBlock({ id, name, imageUrl, price, types, sizes, onClickAddPizza, 
                             fill="white"
                         />
                     </svg>
-                    <span>Добавить</span>
+                    <span>Dodaj</span>
                     {addedCount && <i>{addedCount}</i>}
                 </div>
             </div>

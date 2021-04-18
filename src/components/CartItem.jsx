@@ -25,7 +25,7 @@ function CartItem({ id, name, size, type, totalPrice, totalCount, onRemove, onMi
             </div>
             <div className="cart__item-info">
                 <h3>{name}</h3>
-                <p>{type} тесто, {size} см.</p>
+                <p>{type} ciasto, {size} cm</p>
             </div>
             <div className="cart__item-count">
                 <div onClick={handleMinusItem} className="button button--outline button--circle cart__item-count-minus">
