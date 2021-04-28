@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import classNames from 'classname';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 function PizzaBlock({ id, name, imageUrl, price, types, sizes, onClickAddPizza, addedCount }) {
